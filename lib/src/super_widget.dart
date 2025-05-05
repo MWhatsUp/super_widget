@@ -1610,7 +1610,7 @@ class $Text extends _SuperWidget {
 
             background: style?.background ?? paintBackground,
             debugLabel: style?.debugLabel,
-            decoration: style?.decoration,
+            decoration: style?.decoration ?? decoration,
             decorationColor: style?.decorationColor,
             decorationStyle: style?.decorationStyle,
             decorationThickness: style?.decorationThickness,
