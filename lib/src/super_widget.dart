@@ -2401,6 +2401,7 @@ class $TextField extends _SuperWidget {
 
     // New properties
     bool hasOutsideBorders = false,
+    InputBorder? decorationBorder,
   }) : super(
     border: hasOutsideBorders && border.isEmpty ? const [1] : border,
     children: const [],
@@ -2441,22 +2442,23 @@ class $TextField extends _SuperWidget {
         textBaseline: style?.textBaseline,
       ),
       decoration: InputDecoration(
-        border: decoration?.border is OutlineInputBorder || hasOutsideBorders
-            ? OutlineInputBorder(
-            borderRadius: _SuperWidget.setRadius(
-              decorationRadius:
-              (decoration?.border as OutlineInputBorder?)?.borderRadius,
-              radius: radius,
-              radiusTopLeft: radiusTopLeft,
-              radiusTopRight: radiusTopRight,
-              radiusBottomLeft: radiusBottomLeft,
-              radiusBottomRight: radiusBottomRight,
-            ),
-            borderSide: decoration?.border?.borderSide ?? BorderSide.none,
-            gapPadding: (decoration?.border as OutlineInputBorder?)
-                ?.gapPadding ?? 4.0
-        )
-            : decoration?.border,
+        border: decorationBorder ??
+            (decoration?.border is OutlineInputBorder || hasOutsideBorders
+                ? OutlineInputBorder(
+                borderRadius: _SuperWidget.setRadius(
+                  decorationRadius:
+                  (decoration?.border as OutlineInputBorder?)?.borderRadius,
+                  radius: radius,
+                  radiusTopLeft: radiusTopLeft,
+                  radiusTopRight: radiusTopRight,
+                  radiusBottomLeft: radiusBottomLeft,
+                  radiusBottomRight: radiusBottomRight,
+                ),
+                borderSide: decoration?.border?.borderSide ?? BorderSide.none,
+                gapPadding:
+                (decoration?.border as OutlineInputBorder?)?.gapPadding ?? 4.0
+            )
+                : decoration?.border),
 
         isDense: decoration?.isDense ?? isDense,
         isCollapsed: decoration?.isCollapsed ?? isCollapsed,
