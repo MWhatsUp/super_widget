@@ -2710,9 +2710,9 @@ class $Button extends _SuperWidget {
     TextOverflow? overflow,
   }) : super(
     children: const [],
-    direction: $Direction2.down,
-    horizontalAlign: $Align2.start,
-    verticalAlign: $Align2.start,
+    direction: $Direction.down,
+    horizontalAlign: $Align.start,
+    verticalAlign: $Align.start,
     border: const [],
     borderLeft: const [],
     borderTop: const [],
