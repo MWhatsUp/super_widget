@@ -9,3 +9,7 @@ fix: "decoration" field of $Text widget is not applied
 ## 0.0.3
 
 fix: Add decorationBorder field to $TextField widget
+
+## 0.0.4
+
+fix: border, radius and background properties of $Button widget not working correctly
