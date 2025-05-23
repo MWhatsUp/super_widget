@@ -3299,6 +3299,1147 @@ class $BottomTabs extends StatelessWidget {
   }
 }
 
+class $TextFormField extends _SuperWidget {
+  $TextFormField({
+    // TextField Widget properties
+    Key? textFormFieldKey,
+    String? Function(String?)? validator,
+    AutovalidateMode? autovalidateMode,
+    TextStyle? style,
+    TextDirection? textDirection,
+    bool? onTapAlwaysCalled,
+    bool? canRequestFocus,
+    FocusNode? focusNode,
+    TextInputType? keyboardType,
+    void Function()? onTap,
+    Object groupId = EditableText,
+    String? forceErrorText,
+    String? initialValue,
+    void Function(String)? onFieldSubmitted,
+    void Function(String?)? onSaved,
+    TextEditingController? controller,
+    bool? autocorrect,
+    Iterable<String>? autofillHints,
+    bool? autofocus,
+    Widget? Function(BuildContext, {required int currentLength, required bool isFocused, required int? maxLength})? buildCounter,
+    Clip? clipBehavior,
+    ContentInsertionConfiguration? contentInsertionConfiguration,
+    Widget Function(BuildContext, EditableTextState)? contextMenuBuilder,
+    Color? cursorColor,
+    Color? cursorErrorColor,
+    double? cursorHeight,
+    bool? cursorOpacityAnimates,
+    Radius? cursorRadius,
+    double? cursorWidth,
+    DragStartBehavior? dragStartBehavior,
+    bool? enabled,
+    bool? enableIMEPersonalizedLearning,
+    bool? enableInteractiveSelection,
+    bool? enableSuggestions,
+    bool? expands,
+    bool? ignorePointers,
+    List<TextInputFormatter>? inputFormatters,
+    Brightness? keyboardAppearance,
+    TextMagnifierConfiguration? magnifierConfiguration,
+    int? maxLength,
+    MaxLengthEnforcement? maxLengthEnforcement,
+    int? maxLines,
+    int? minLines,
+    MouseCursor? mouseCursor,
+    bool? obscureText,
+    String? obscuringCharacter,
+    void Function(String, Map<String, dynamic>)? onAppPrivateCommand,
+    void Function(String)? onChanged,
+    void Function()? onEditingComplete,
+    void Function(String)? onSubmitted,
+    void Function(PointerDownEvent)? onTapOutside,
+    bool? readOnly,
+    String? restorationId,
+    bool? scribbleEnabled,
+    ScrollController? scrollController,
+    EdgeInsets? scrollPadding,
+    ScrollPhysics? scrollPhysics,
+    TextSelectionControls? selectionControls,
+    BoxHeightStyle? selectionHeightStyle,
+    BoxWidthStyle? selectionWidthStyle,
+    bool? showCursor,
+    SmartDashesType? smartDashesType,
+    SmartQuotesType? smartQuotesType,
+    SpellCheckConfiguration? spellCheckConfiguration,
+    WidgetStatesController? statesController,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextAlignVertical? textAlignVertical,
+    TextCapitalization? textCapitalization,
+    TextInputAction? textInputAction,
+    UndoHistoryController? undoController,
+
+    // SuperWidget properties
+    super.key,
+    super.isFlexible = false,
+    super.isExpanded = false,
+    super.doNotExpand = false,
+    super.fillWidth = false,
+    super.fillHeight = false,
+    super.aspectRatio,
+    super.inverseAspectRatio,
+    super.clipBehaviour,
+    super.width,
+    super.height,
+    super.position = const [],
+    super.left,
+    super.top,
+    super.right,
+    super.bottom,
+    super.margin = const [],
+    super.marginLeft,
+    super.marginTop,
+    super.marginRight,
+    super.marginBottom,
+    super.padding = const [],
+    super.paddingLeft,
+    super.paddingTop,
+    super.paddingRight,
+    super.paddingBottom,
+    List<Object> border = const [],
+    super.borderLeft = const [],
+    super.borderTop = const [],
+    super.borderRight = const [],
+    super.borderBottom = const [],
+    super.radius = const [],
+    super.radiusTopLeft,
+    super.radiusTopRight,
+    super.radiusBottomRight,
+    super.radiusBottomLeft,
+    super.isScrollable = false,
+    super.scale = const [],
+    super.scaleX,
+    super.scaleY,
+    super.rotation,
+    super.flipX,
+    super.flipY,
+    super.isCentered = false,
+    super.opacity,
+    super.splashColor,
+    super.applyIntrinsicHeight = false,
+
+    // Overwritten properties
+    Color? color,
+    Color? background,
+    double? fontSize,
+    TextBaseline? textBaseline,
+    List<Shadow>? shadows,
+    String? package,
+    TextLeadingDistribution? leadingDistribution,
+    bool? inherit,
+    double? textHeight,
+    Paint? foreground,
+    double? decorationThickness,
+    TextDecorationStyle? decorationStyle,
+    Color? decorationColor,
+    InputDecoration? decoration,
+    String? debugLabel,
+    Paint? paintBackground,
+    double? wordSpacing,
+    double? letterSpacing,
+    FontWeight? fontWeight,
+    List<FontVariation>? fontVariations,
+    List<String>? fontFamilyFallback,
+    FontStyle? fontStyle,
+    String? fontFamily,
+    List<FontFeature>? fontFeatures,
+
+    Locale? locale,
+    TextOverflow? overflow,
+
+    bool? isDense,
+    bool? isCollapsed,
+    Color? hoverColor,
+    String? hintText,
+    Widget? helper,
+    Color? focusColor,
+    Widget? counter,
+    Color? iconColor,
+    Widget? icon,
+    TextStyle? labelStyle,
+    Widget? label,
+    TextStyle? floatingLabelStyle,
+    FloatingLabelBehavior? floatingLabelBehavior,
+    FloatingLabelAlignment? floatingLabelAlignment,
+    Widget? error,
+    BoxConstraints? constraints,
+    Widget? suffixIcon,
+    Widget? suffix,
+    Widget? prefixIcon,
+    Widget? prefix,
+    EdgeInsetsGeometry? contentPadding,
+    Color? fillColor,
+    bool? alignLabelWithHint,
+    TextStyle? counterStyle,
+    String? counterText,
+    InputBorder? disabledBorder,
+    InputBorder? enabledBorder,
+    InputBorder? errorBorder,
+    int? errorMaxLines,
+    TextStyle? errorStyle,
+    String? errorText,
+    bool? filled,
+    InputBorder? focusedBorder,
+    InputBorder? focusedErrorBorder,
+    int? helperMaxLines,
+    TextStyle? helperStyle,
+    String? helperText,
+    Duration? hintFadeDuration,
+    int? hintMaxLines,
+    TextStyle? hintStyle,
+    TextDirection? hintTextDirection,
+    String? labelText,
+    BoxConstraints? prefixIconConstraints,
+    Color? prefixIconColor,
+    TextStyle? prefixStyle,
+    String? prefixText,
+    String? semanticCounterText,
+    Color? suffixIconColor,
+    BoxConstraints? suffixIconConstraints,
+    TextStyle? suffixStyle,
+    String? suffixText,
+
+    // New properties
+    bool hasOutsideBorders = false,
+    InputBorder? decorationBorder,
+  }) : super(
+    border: hasOutsideBorders && border.isEmpty ? const [1] : border,
+    children: const [],
+    direction: $Direction.down,
+    horizontalAlign: $Align.start,
+    verticalAlign: $Align.start,
+    onTap: null,
+    background: background ?? style?.backgroundColor,
+    scrollController: null,
+    child: TextFormField(
+      key: textFormFieldKey,
+      validator: validator,
+      autovalidateMode: autovalidateMode,
+      groupId: groupId,
+      initialValue: initialValue,
+      forceErrorText: forceErrorText,
+      onFieldSubmitted: onFieldSubmitted,
+      onSaved: onSaved,
+      style: TextStyle(
+        color: style?.color ?? color,
+        backgroundColor: style?.backgroundColor ?? background,
+        fontFamily: style?.fontFamily ?? fontFamily,
+        fontFamilyFallback: style?.fontFamilyFallback ?? fontFamilyFallback,
+        fontFeatures: style?.fontFeatures ?? fontFeatures,
+        fontStyle: style?.fontStyle ?? fontStyle,
+        fontSize: style?.fontSize ?? fontSize,
+        fontVariations: style?.fontVariations ?? fontVariations,
+        fontWeight: style?.fontWeight ?? fontWeight,
+        letterSpacing: style?.letterSpacing ?? letterSpacing,
+        locale: style?.locale ?? locale,
+        overflow: style?.overflow ?? overflow,
+        wordSpacing: style?.wordSpacing ?? wordSpacing,
+        background: style?.background ?? paintBackground,
+        debugLabel: style?.debugLabel,
+        decoration: style?.decoration,
+        decorationColor: style?.decorationColor,
+        decorationStyle: style?.decorationStyle,
+        decorationThickness: style?.decorationThickness,
+        foreground: style?.foreground,
+        height: style?.height ?? textHeight,
+        inherit: true,
+        leadingDistribution: style?.leadingDistribution,
+        package: null,
+        shadows: style?.shadows,
+        textBaseline: style?.textBaseline,
+      ),
+      decoration: InputDecoration(
+        border: decorationBorder ??
+            (decoration?.border is OutlineInputBorder || hasOutsideBorders
+                ? OutlineInputBorder(
+                borderRadius: _SuperWidget.setRadius(
+                  decorationRadius:
+                  (decoration?.border as OutlineInputBorder?)?.borderRadius,
+                  radius: radius,
+                  radiusTopLeft: radiusTopLeft,
+                  radiusTopRight: radiusTopRight,
+                  radiusBottomLeft: radiusBottomLeft,
+                  radiusBottomRight: radiusBottomRight,
+                ),
+                borderSide: decoration?.border?.borderSide ?? BorderSide.none,
+                gapPadding:
+                (decoration?.border as OutlineInputBorder?)?.gapPadding ?? 4.0
+            )
+                : decoration?.border),
+
+        isDense: decoration?.isDense ?? isDense,
+        isCollapsed: decoration?.isCollapsed ?? isCollapsed,
+        hoverColor: decoration?.hoverColor ?? hoverColor,
+        hintText: decoration?.hintText ?? hintText,
+        helper: decoration?.helper ?? helper,
+        focusColor: decoration?.focusColor ?? focusColor,
+        counter: decoration?.counter ?? counter,
+        iconColor: decoration?.iconColor ?? iconColor,
+        icon: decoration?.icon ?? icon,
+        labelStyle: decoration?.labelStyle ?? labelStyle,
+        label: decoration?.label ?? label,
+        floatingLabelStyle: decoration?.floatingLabelStyle ??
+            floatingLabelStyle,
+        floatingLabelBehavior: decoration?.floatingLabelBehavior ??
+            floatingLabelBehavior,
+        floatingLabelAlignment: decoration?.floatingLabelAlignment ??
+            floatingLabelAlignment,
+        error: decoration?.error ?? error,
+        enabled: decoration?.enabled ?? enabled ?? true,
+        constraints: decoration?.constraints ?? constraints,
+        suffixIcon: decoration?.suffixIcon ?? suffixIcon,
+        suffix: decoration?.suffix ?? suffix,
+        prefixIcon: decoration?.prefixIcon ?? prefixIcon,
+        prefix: decoration?.prefix ?? prefix,
+        contentPadding: _SuperWidget.setPadding(
+          decorationPadding: decoration?.contentPadding ?? contentPadding,
+          padding: padding,
+          paddingLeft: paddingLeft,
+          paddingTop: paddingTop,
+          paddingRight: paddingRight,
+          paddingBottom: paddingBottom,
+        ),
+        fillColor: decoration?.fillColor ?? fillColor ?? background,
+        alignLabelWithHint: decoration?.alignLabelWithHint ??
+            alignLabelWithHint,
+        counterStyle: decoration?.counterStyle ?? counterStyle,
+        counterText: decoration?.counterText ?? counterText,
+        disabledBorder: decoration?.disabledBorder ?? disabledBorder,
+        enabledBorder: decoration?.enabledBorder ?? enabledBorder,
+        errorBorder: decoration?.errorBorder ?? errorBorder,
+        errorMaxLines: decoration?.errorMaxLines ?? errorMaxLines,
+        errorStyle: decoration?.errorStyle ?? errorStyle,
+        errorText: decoration?.errorText ?? errorText,
+        filled: decoration?.filled ?? filled ?? background != null,
+        focusedBorder: decoration?.focusedBorder ?? focusedBorder,
+        focusedErrorBorder: decoration?.focusedErrorBorder ??
+            focusedErrorBorder,
+        helperMaxLines: decoration?.helperMaxLines ?? helperMaxLines,
+        helperStyle: decoration?.helperStyle ?? helperStyle,
+        helperText: decoration?.helperText ?? helperText,
+        hintFadeDuration: decoration?.hintFadeDuration ?? hintFadeDuration,
+        hintMaxLines: decoration?.hintMaxLines ?? hintMaxLines,
+        hintStyle: decoration?.hintStyle ?? hintStyle,
+        hintTextDirection: decoration?.hintTextDirection ?? hintTextDirection,
+        labelText: decoration?.labelText ?? labelText,
+        prefixIconConstraints: decoration?.prefixIconConstraints ??
+            prefixIconConstraints,
+        prefixIconColor: decoration?.prefixIconColor ?? prefixIconColor,
+        prefixStyle: decoration?.prefixStyle ?? prefixStyle,
+        prefixText: decoration?.prefixText ?? prefixText,
+        semanticCounterText: decoration?.semanticCounterText ??
+            semanticCounterText,
+        suffixIconColor: decoration?.suffixIconColor ?? suffixIconColor,
+        suffixIconConstraints: decoration?.suffixIconConstraints ??
+            suffixIconConstraints,
+        suffixStyle: decoration?.suffixStyle ?? suffixStyle,
+        suffixText: decoration?.suffixText ?? suffixText,
+      ),
+      textDirection: textDirection,
+      onTapAlwaysCalled: onTapAlwaysCalled ?? false,
+      canRequestFocus: canRequestFocus ?? true,
+      focusNode: focusNode,
+      keyboardType: keyboardType,
+      onTap: onTap,
+      controller: controller,
+      autocorrect: autocorrect ?? true,
+      autofillHints: autofillHints,
+      autofocus: autofocus ?? false,
+      buildCounter: buildCounter,
+      clipBehavior: clipBehavior ?? Clip.hardEdge,
+      contentInsertionConfiguration: contentInsertionConfiguration,
+      contextMenuBuilder: contextMenuBuilder,
+      cursorColor: cursorColor,
+      cursorErrorColor: cursorErrorColor,
+      cursorHeight: cursorHeight,
+      cursorOpacityAnimates: cursorOpacityAnimates,
+      cursorRadius: cursorRadius,
+      cursorWidth: cursorWidth ?? 2.0,
+      dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
+      enabled: enabled,
+      enableIMEPersonalizedLearning: enableIMEPersonalizedLearning ?? true,
+      enableInteractiveSelection: enableInteractiveSelection,
+      enableSuggestions: enableSuggestions ?? true,
+      expands: expands ?? false,
+      ignorePointers: ignorePointers,
+      inputFormatters: inputFormatters,
+      keyboardAppearance: keyboardAppearance,
+      magnifierConfiguration: magnifierConfiguration,
+      maxLength: maxLength,
+      maxLengthEnforcement: maxLengthEnforcement,
+      maxLines: maxLines,
+      minLines: minLines,
+      mouseCursor: mouseCursor,
+      obscureText: obscureText ?? false,
+      obscuringCharacter: obscuringCharacter ?? "•",
+      onAppPrivateCommand: onAppPrivateCommand,
+      onChanged: onChanged,
+      onEditingComplete: onEditingComplete,
+      onTapOutside: onTapOutside,
+      readOnly: readOnly ?? false,
+      restorationId: restorationId,
+      scribbleEnabled: scribbleEnabled ?? true,
+      scrollController: scrollController,
+      scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
+      scrollPhysics: scrollPhysics,
+      selectionControls: selectionControls,
+      selectionHeightStyle: selectionHeightStyle ?? BoxHeightStyle.tight,
+      selectionWidthStyle: selectionWidthStyle ?? BoxWidthStyle.tight,
+      showCursor: showCursor,
+      smartDashesType: smartDashesType,
+      smartQuotesType: smartQuotesType,
+      spellCheckConfiguration: spellCheckConfiguration,
+      statesController: statesController,
+      strutStyle: strutStyle,
+      textAlign: textAlign ?? TextAlign.start,
+      textAlignVertical: textAlignVertical,
+      textCapitalization: textCapitalization ?? TextCapitalization.none,
+      textInputAction: textInputAction,
+      undoController: undoController,
+    ),
+  );
+}
+
+class $ValidatedTextField extends StatefulWidget {
+  const $ValidatedTextField({
+    super.key,
+    this.textFormFieldKey,
+    this.validator,
+    this.autovalidateMode,
+    this.style,
+    this.textDirection,
+    this.onTapAlwaysCalled,
+    this.canRequestFocus,
+    this.focusNode,
+    this.keyboardType,
+    this.onTap,
+    this.forceErrorText,
+    this.initialValue,
+    this.onFieldSubmitted,
+    this.onSaved,
+    this.controller,
+    this.autocorrect,
+    this.autofillHints,
+    this.autofocus,
+    this.buildCounter,
+    this.clipBehavior,
+    this.contentInsertionConfiguration,
+    this.contextMenuBuilder,
+    this.cursorColor,
+    this.cursorErrorColor,
+    this.cursorHeight,
+    this.cursorOpacityAnimates,
+    this.cursorRadius,
+    this.cursorWidth,
+    this.dragStartBehavior,
+    this.enabled,
+    this.enableIMEPersonalizedLearning,
+    this.enableInteractiveSelection,
+    this.enableSuggestions,
+    this.expands,
+    this.ignorePointers,
+    this.inputFormatters,
+    this.keyboardAppearance,
+    this.magnifierConfiguration,
+    this.maxLength,
+    this.maxLengthEnforcement,
+    this.maxLines,
+    this.minLines,
+    this.mouseCursor,
+    this.obscureText,
+    this.obscuringCharacter,
+    this.onAppPrivateCommand,
+    this.onChanged,
+    this.onEditingComplete,
+    this.onSubmitted,
+    this.onTapOutside,
+    this.readOnly,
+    this.restorationId,
+    this.scribbleEnabled,
+    this.scrollPadding,
+    this.scrollPhysics,
+    this.selectionControls,
+    this.selectionHeightStyle,
+    this.selectionWidthStyle,
+    this.showCursor,
+    this.smartDashesType,
+    this.smartQuotesType,
+    this.spellCheckConfiguration,
+    this.statesController,
+    this.strutStyle,
+    this.textAlign,
+    this.textAlignVertical,
+    this.textCapitalization,
+    this.textInputAction,
+    this.undoController,
+    this.isFlexible = false,
+    this.isExpanded = false,
+    this.fillWidth = false,
+    this.fillHeight = false,
+    this.aspectRatio,
+    this.inverseAspectRatio,
+    this.clipBehaviour,
+    this.width,
+    this.height,
+    this.position = const [],
+    this.left,
+    this.top,
+    this.right,
+    this.bottom,
+    this.margin = const [],
+    this.marginLeft,
+    this.marginRight,
+    this.marginTop,
+    this.marginBottom,
+    this.padding = const [],
+    this.paddingLeft,
+    this.paddingRight,
+    this.paddingTop,
+    this.paddingBottom,
+    this.border = const [],
+    this.borderLeft = const [],
+    this.borderTop = const [],
+    this.borderRight = const [],
+    this.borderBottom = const [],
+    this.radius = const [],
+    this.radiusTopLeft,
+    this.radiusTopRight,
+    this.radiusBottomRight,
+    this.radiusBottomLeft,
+    this.background,
+    this.isScrollable = false,
+    this.scrollController,
+    this.scale = const [],
+    this.scaleX,
+    this.scaleY,
+    this.rotation,
+    this.flipX,
+    this.flipY,
+    this.isCentered = false,
+    this.opacity,
+    this.splashColor,
+    this.applyIntrinsicHeight = false,
+    this.color,
+    this.fontSize,
+    this.textBaseline,
+    this.shadows,
+    this.package,
+    this.leadingDistribution,
+    this.inherit,
+    this.textHeight,
+    this.foreground,
+    this.decorationThickness,
+    this.decorationStyle,
+    this.decorationColor,
+    this.decoration,
+    this.debugLabel,
+    this.paintBackground,
+    this.wordSpacing,
+    this.letterSpacing,
+    this.fontWeight,
+    this.fontVariations,
+    this.fontFamilyFallback,
+    this.fontStyle,
+    this.fontFamily,
+    this.fontFeatures,
+    this.locale,
+    this.overflow,
+    this.isDense,
+    this.isCollapsed,
+    this.hoverColor,
+    this.hintText,
+    this.helper,
+    this.focusColor,
+    this.counter,
+    this.iconColor,
+    this.icon,
+    this.labelStyle,
+    this.label,
+    this.floatingLabelStyle,
+    this.floatingLabelBehavior,
+    this.floatingLabelAlignment,
+    this.error,
+    this.constraints,
+    this.suffixIcon,
+    this.suffix,
+    this.prefixIcon,
+    this.prefix,
+    this.contentPadding,
+    this.fillColor,
+    this.alignLabelWithHint,
+    this.counterStyle,
+    this.counterText,
+    this.disabledBorder,
+    this.enabledBorder,
+    this.errorBorder,
+    this.errorMaxLines,
+    this.errorStyle,
+    this.errorText,
+    this.filled,
+    this.focusedBorder,
+    this.focusedErrorBorder,
+    this.helperMaxLines,
+    this.helperStyle,
+    this.helperText,
+    this.hintFadeDuration,
+    this.hintMaxLines,
+    this.hintStyle,
+    this.hintTextDirection,
+    this.labelText,
+    this.prefixIconConstraints,
+    this.prefixIconColor,
+    this.prefixStyle,
+    this.prefixText,
+    this.semanticCounterText,
+    this.suffixIconColor,
+    this.suffixIconConstraints,
+    this.suffixStyle,
+    this.suffixText,
+    this.hasOutsideBorders = false,
+    this.decorationBorder,
+  });
+
+  final bool isFlexible;
+  final bool isExpanded;
+  final bool fillWidth;
+  final bool fillHeight;
+  final Size? aspectRatio;
+  final Size? inverseAspectRatio;
+  final Clip? clipBehaviour;
+  final double? width;
+  final double? height;
+  final List<double> position;
+  final double? left;
+  final double? top;
+  final double? right;
+  final double? bottom;
+  final List<double> margin;
+  final double? marginLeft;
+  final double? marginRight;
+  final double? marginTop;
+  final double? marginBottom;
+  final List<double> padding;
+  final double? paddingLeft;
+  final double? paddingRight;
+  final double? paddingTop;
+  final double? paddingBottom;
+  final List<Object> border;
+  final List<Object> borderLeft;
+  final List<Object> borderTop;
+  final List<Object> borderRight;
+  final List<Object> borderBottom;
+  final List<double> radius;
+  final double? radiusTopLeft;
+  final double? radiusTopRight;
+  final double? radiusBottomRight;
+  final double? radiusBottomLeft;
+  final Color? background;
+  final bool isScrollable;
+  final ScrollController? scrollController;
+  final List<double> scale;
+  final double? scaleX;
+  final double? scaleY;
+  final double? rotation;
+  final bool? flipX;
+  final bool? flipY;
+  final bool isCentered;
+  final double? opacity;
+  final Color? splashColor;
+  final bool applyIntrinsicHeight;
+  final Key? textFormFieldKey;
+  final String? Function(String?)? validator;
+  final AutovalidateMode? autovalidateMode;
+  final TextStyle? style;
+  final TextDirection? textDirection;
+  final bool? onTapAlwaysCalled;
+  final bool? canRequestFocus;
+  final FocusNode? focusNode;
+  final TextInputType? keyboardType;
+  final void Function()? onTap;
+  final Object groupId = EditableText;
+  final String? forceErrorText;
+  final String? initialValue;
+  final void Function(String)? onFieldSubmitted;
+  final void Function(String?)? onSaved;
+  final TextEditingController? controller;
+  final bool? autocorrect;
+  final Iterable<String>? autofillHints;
+  final bool? autofocus;
+  final Widget? Function(BuildContext, {required int currentLength, required bool isFocused, required int? maxLength})? buildCounter;
+  final Clip? clipBehavior;
+  final ContentInsertionConfiguration? contentInsertionConfiguration;
+  final Widget Function(BuildContext, EditableTextState)? contextMenuBuilder;
+  final Color? cursorColor;
+  final Color? cursorErrorColor;
+  final double? cursorHeight;
+  final bool? cursorOpacityAnimates;
+  final Radius? cursorRadius;
+  final double? cursorWidth;
+  final DragStartBehavior? dragStartBehavior;
+  final bool? enabled;
+  final bool? enableIMEPersonalizedLearning;
+  final bool? enableInteractiveSelection;
+  final bool? enableSuggestions;
+  final bool? expands;
+  final bool? ignorePointers;
+  final List<TextInputFormatter>? inputFormatters;
+  final Brightness? keyboardAppearance;
+  final TextMagnifierConfiguration? magnifierConfiguration;
+  final int? maxLength;
+  final MaxLengthEnforcement? maxLengthEnforcement;
+  final int? maxLines;
+  final int? minLines;
+  final MouseCursor? mouseCursor;
+  final bool? obscureText;
+  final String? obscuringCharacter;
+  final void Function(String, Map<String, dynamic>)? onAppPrivateCommand;
+  final void Function(String)? onChanged;
+  final void Function()? onEditingComplete;
+  final void Function(String)? onSubmitted;
+  final void Function(PointerDownEvent)? onTapOutside;
+  final bool? readOnly;
+  final String? restorationId;
+  final bool? scribbleEnabled;
+  final EdgeInsets? scrollPadding;
+  final ScrollPhysics? scrollPhysics;
+  final TextSelectionControls? selectionControls;
+  final BoxHeightStyle? selectionHeightStyle;
+  final BoxWidthStyle? selectionWidthStyle;
+  final bool? showCursor;
+  final SmartDashesType? smartDashesType;
+  final SmartQuotesType? smartQuotesType;
+  final SpellCheckConfiguration? spellCheckConfiguration;
+  final WidgetStatesController? statesController;
+  final StrutStyle? strutStyle;
+  final TextAlign? textAlign;
+  final TextAlignVertical? textAlignVertical;
+  final TextCapitalization? textCapitalization;
+  final TextInputAction? textInputAction;
+  final UndoHistoryController? undoController;
+  final Color? color;
+  final double? fontSize;
+  final TextBaseline? textBaseline;
+  final List<Shadow>? shadows;
+  final String? package;
+  final TextLeadingDistribution? leadingDistribution;
+  final bool? inherit;
+  final double? textHeight;
+  final Paint? foreground;
+  final double? decorationThickness;
+  final TextDecorationStyle? decorationStyle;
+  final Color? decorationColor;
+  final InputDecoration? decoration;
+  final String? debugLabel;
+  final Paint? paintBackground;
+  final double? wordSpacing;
+  final double? letterSpacing;
+  final FontWeight? fontWeight;
+  final List<FontVariation>? fontVariations;
+  final List<String>? fontFamilyFallback;
+  final FontStyle? fontStyle;
+  final String? fontFamily;
+  final List<FontFeature>? fontFeatures;
+  final Locale? locale;
+  final TextOverflow? overflow;
+  final bool? isDense;
+  final bool? isCollapsed;
+  final Color? hoverColor;
+  final String? hintText;
+  final Widget? helper;
+  final Color? focusColor;
+  final Widget? counter;
+  final Color? iconColor;
+  final Widget? icon;
+  final TextStyle? labelStyle;
+  final Widget? label;
+  final TextStyle? floatingLabelStyle;
+  final FloatingLabelBehavior? floatingLabelBehavior;
+  final FloatingLabelAlignment? floatingLabelAlignment;
+  final Widget? error;
+  final BoxConstraints? constraints;
+  final Widget? suffixIcon;
+  final Widget? suffix;
+  final Widget? prefixIcon;
+  final Widget? prefix;
+  final EdgeInsetsGeometry? contentPadding;
+  final Color? fillColor;
+  final bool? alignLabelWithHint;
+  final TextStyle? counterStyle;
+  final String? counterText;
+  final InputBorder? disabledBorder;
+  final InputBorder? enabledBorder;
+  final InputBorder? errorBorder;
+  final int? errorMaxLines;
+  final TextStyle? errorStyle;
+  final String? errorText;
+  final bool? filled;
+  final InputBorder? focusedBorder;
+  final InputBorder? focusedErrorBorder;
+  final int? helperMaxLines;
+  final TextStyle? helperStyle;
+  final String? helperText;
+  final Duration? hintFadeDuration;
+  final int? hintMaxLines;
+  final TextStyle? hintStyle;
+  final TextDirection? hintTextDirection;
+  final String? labelText;
+  final BoxConstraints? prefixIconConstraints;
+  final Color? prefixIconColor;
+  final TextStyle? prefixStyle;
+  final String? prefixText;
+  final String? semanticCounterText;
+  final Color? suffixIconColor;
+  final BoxConstraints? suffixIconConstraints;
+  final TextStyle? suffixStyle;
+  final String? suffixText;
+  final bool hasOutsideBorders;
+  final InputBorder? decorationBorder;
+
+  @override
+  State<$ValidatedTextField> createState() => $ValidatedTextFieldState();
+}
+
+class $ValidatedTextFieldState extends State<$ValidatedTextField> {
+  late FocusNode _focus;
+  final GlobalKey _key = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _focus = widget.focusNode?? FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _focus.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      $ValidatedTextFieldView(widget: widget, field: this);
+
+  String? validate(String? value) {
+    if (widget.validator == null) {
+      return null;
+    }
+
+    var result = widget.validator!(value);
+
+    if (result == null) {
+      return null;
+    }
+
+    Scrollable.ensureVisible(
+      _key.currentContext!,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    Future.delayed(const Duration(milliseconds: 500), () {
+      _focus.requestFocus();
+    });
+
+    return result;
+  }
+}
+
+class $ValidatedTextFieldView extends StatelessWidget {
+  const $ValidatedTextFieldView({
+    super.key,
+    required this.widget,
+    required this.field,
+  });
+
+  final $ValidatedTextField widget;
+  final $ValidatedTextFieldState field;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget textField = $Single(
+      fillWidth: widget.fillWidth,
+      fillHeight: widget.fillHeight,
+      aspectRatio: widget.aspectRatio,
+      inverseAspectRatio: widget.inverseAspectRatio,
+      clipBehaviour: widget.clipBehaviour,
+      width: widget.width,
+      height: widget.height,
+      position: widget.position,
+      left: widget.left,
+      top: widget.top,
+      right: widget.right,
+      bottom: widget.bottom,
+      margin: widget.margin,
+      marginLeft: widget.marginLeft,
+      marginTop: widget.marginTop,
+      marginRight: widget.marginRight,
+      marginBottom: widget.marginBottom,
+      padding: widget.padding,
+      paddingLeft: widget.paddingLeft,
+      paddingTop: widget.paddingTop,
+      paddingRight: widget.paddingRight,
+      paddingBottom: widget.paddingBottom,
+      border: widget.hasOutsideBorders && widget.border.isEmpty
+          ? const [1] : widget.border,
+      borderLeft: widget.borderLeft,
+      borderTop: widget.borderTop,
+      borderRight: widget.borderRight,
+      borderBottom: widget.borderBottom,
+      radius: widget.radius,
+      radiusTopLeft: widget.radiusTopLeft,
+      radiusTopRight: widget.radiusTopRight,
+      radiusBottomRight: widget.radiusBottomRight,
+      radiusBottomLeft: widget.radiusBottomLeft,
+      isScrollable: widget.isScrollable,
+      scale: widget.scale,
+      scaleX: widget.scaleX,
+      scaleY: widget.scaleY,
+      rotation: widget.rotation,
+      flipX: widget.flipX,
+      flipY: widget.flipY,
+      isCentered: widget.isCentered,
+      opacity: widget.opacity,
+      splashColor: widget.splashColor,
+      direction: $Direction.down,
+      horizontalAlign: $Align.start,
+      verticalAlign: $Align.start,
+      onTap: widget.onTap,
+      background: widget.background,
+      scrollController: widget.scrollController,
+      TextFormField(
+        key: widget.textFormFieldKey,
+        validator: widget.validator,
+        autovalidateMode: widget.autovalidateMode,
+        groupId: widget.groupId,
+        initialValue: widget.initialValue,
+        forceErrorText: widget.forceErrorText,
+        onFieldSubmitted: widget.onFieldSubmitted,
+        onSaved: widget.onSaved,
+        style: TextStyle(
+          color: widget.style?.color ?? widget.color,
+          backgroundColor: widget.style?.backgroundColor ?? widget.background,
+          fontFamily: widget.style?.fontFamily ?? widget.fontFamily,
+          fontFamilyFallback: widget.style?.fontFamilyFallback ??
+              widget.fontFamilyFallback,
+          fontFeatures: widget.style?.fontFeatures ?? widget.fontFeatures,
+          fontStyle: widget.style?.fontStyle ?? widget.fontStyle,
+          fontSize: widget.style?.fontSize ?? widget.fontSize,
+          fontVariations: widget.style?.fontVariations ??
+              widget.fontVariations,
+          fontWeight: widget.style?.fontWeight ?? widget.fontWeight,
+          letterSpacing: widget.style?.letterSpacing ?? widget.letterSpacing,
+          locale: widget.style?.locale ?? widget.locale,
+          overflow: widget.style?.overflow ?? widget.overflow,
+          wordSpacing: widget.style?.wordSpacing ?? widget.wordSpacing,
+          background: widget.style?.background ?? widget.paintBackground,
+          debugLabel: widget.style?.debugLabel,
+          decoration: widget.style?.decoration,
+          decorationColor: widget.style?.decorationColor,
+          decorationStyle: widget.style?.decorationStyle,
+          decorationThickness: widget.style?.decorationThickness,
+          foreground: widget.style?.foreground,
+          height: widget.style?.height ?? widget.textHeight,
+          inherit: true,
+          leadingDistribution: widget.style?.leadingDistribution,
+          package: null,
+          shadows: widget.style?.shadows,
+          textBaseline: widget.style?.textBaseline,
+        ),
+        decoration: InputDecoration(
+          border: widget.decorationBorder ??
+              (widget.decoration?.border is OutlineInputBorder ||
+                  widget.hasOutsideBorders
+                  ? OutlineInputBorder(
+                  borderRadius: _SuperWidget.setRadius(
+                    decorationRadius:
+                    (widget.decoration?.border as OutlineInputBorder?)
+                        ?.borderRadius,
+                    radius: widget.radius,
+                    radiusTopLeft: widget.radiusTopLeft,
+                    radiusTopRight: widget.radiusTopRight,
+                    radiusBottomLeft: widget.radiusBottomLeft,
+                    radiusBottomRight: widget.radiusBottomRight,
+                  ),
+                  borderSide: widget.decoration?.border?.borderSide ??
+                      BorderSide.none,
+                  gapPadding:
+                  (widget.decoration?.border as OutlineInputBorder?)
+                      ?.gapPadding ?? 4.0
+              )
+                  : widget.decoration?.border),
+
+          isDense: widget.decoration?.isDense ?? widget.isDense,
+          isCollapsed: widget.decoration?.isCollapsed ?? widget.isCollapsed,
+          hoverColor: widget.decoration?.hoverColor ?? widget.hoverColor,
+          hintText: widget.decoration?.hintText ?? widget.hintText,
+          helper: widget.decoration?.helper ?? widget.helper,
+          focusColor: widget.decoration?.focusColor ?? widget.focusColor,
+          counter: widget.decoration?.counter ?? widget.counter,
+          iconColor: widget.decoration?.iconColor ?? widget.iconColor,
+          icon: widget.decoration?.icon ?? widget.icon,
+          labelStyle: widget.decoration?.labelStyle ?? widget.labelStyle,
+          label: widget.decoration?.label ?? widget.label,
+          floatingLabelStyle: widget.decoration?.floatingLabelStyle ??
+              widget.floatingLabelStyle,
+          floatingLabelBehavior: widget.decoration?.floatingLabelBehavior ??
+              widget.floatingLabelBehavior,
+          floatingLabelAlignment: widget.decoration?.floatingLabelAlignment ??
+              widget.floatingLabelAlignment,
+          error: widget.decoration?.error ?? widget.error,
+          enabled: widget.decoration?.enabled ?? widget.enabled ?? true,
+          constraints: widget.decoration?.constraints ?? widget.constraints,
+          suffixIcon: widget.decoration?.suffixIcon ?? widget.suffixIcon,
+          suffix: widget.decoration?.suffix ?? widget.suffix,
+          prefixIcon: widget.decoration?.prefixIcon ?? widget.prefixIcon,
+          prefix: widget.decoration?.prefix ?? widget.prefix,
+          contentPadding: _SuperWidget.setPadding(
+            decorationPadding: widget.decoration?.contentPadding ??
+                widget.contentPadding,
+            padding: widget.padding,
+            paddingLeft: widget.paddingLeft,
+            paddingTop: widget.paddingTop,
+            paddingRight: widget.paddingRight,
+            paddingBottom: widget.paddingBottom,
+          ),
+          fillColor: widget.decoration?.fillColor ?? widget.fillColor ??
+              widget.background,
+          alignLabelWithHint: widget.decoration?.alignLabelWithHint ??
+              widget.alignLabelWithHint,
+          counterStyle: widget.decoration?.counterStyle ??
+              widget.counterStyle,
+          counterText: widget.decoration?.counterText ?? widget.counterText,
+          disabledBorder: widget.decoration?.disabledBorder ??
+              widget.disabledBorder,
+          enabledBorder: widget.decoration?.enabledBorder ??
+              widget.enabledBorder,
+          errorBorder: widget.decoration?.errorBorder ?? widget.errorBorder,
+          errorMaxLines: widget.decoration?.errorMaxLines ??
+              widget.errorMaxLines,
+          errorStyle: widget.decoration?.errorStyle ?? widget.errorStyle,
+          errorText: widget.decoration?.errorText ?? widget.errorText,
+          filled: widget.decoration?.filled ?? widget.filled ??
+              widget.background != null,
+          focusedBorder: widget.decoration?.focusedBorder ??
+              widget.focusedBorder,
+          focusedErrorBorder: widget.decoration?.focusedErrorBorder ??
+              widget.focusedErrorBorder,
+          helperMaxLines: widget.decoration?.helperMaxLines ??
+              widget.helperMaxLines,
+          helperStyle: widget.decoration?.helperStyle ?? widget.helperStyle,
+          helperText: widget.decoration?.helperText ?? widget.helperText,
+          hintFadeDuration: widget.decoration?.hintFadeDuration ??
+              widget.hintFadeDuration,
+          hintMaxLines: widget.decoration?.hintMaxLines ??
+              widget.hintMaxLines,
+          hintStyle: widget.decoration?.hintStyle ?? widget.hintStyle,
+          hintTextDirection: widget.decoration?.hintTextDirection ??
+              widget.hintTextDirection,
+          labelText: widget.decoration?.labelText ?? widget.labelText,
+          prefixIconConstraints: widget.decoration?.prefixIconConstraints ??
+              widget.prefixIconConstraints,
+          prefixIconColor: widget.decoration?.prefixIconColor ??
+              widget.prefixIconColor,
+          prefixStyle: widget.decoration?.prefixStyle ?? widget.prefixStyle,
+          prefixText: widget.decoration?.prefixText ?? widget.prefixText,
+          semanticCounterText: widget.decoration?.semanticCounterText ??
+              widget.semanticCounterText,
+          suffixIconColor: widget.decoration?.suffixIconColor ??
+              widget.suffixIconColor,
+          suffixIconConstraints: widget.decoration?.suffixIconConstraints ??
+              widget.suffixIconConstraints,
+          suffixStyle: widget.decoration?.suffixStyle ?? widget.suffixStyle,
+          suffixText: widget.decoration?.suffixText ?? widget.suffixText,
+        ),
+        textDirection: widget.textDirection,
+        onTapAlwaysCalled: widget.onTapAlwaysCalled ?? false,
+        canRequestFocus: widget.canRequestFocus ?? true,
+        focusNode: widget.focusNode,
+        keyboardType: widget.keyboardType,
+        onTap: widget.onTap,
+        controller: widget.controller,
+        autocorrect: widget.autocorrect ?? true,
+        autofillHints: widget.autofillHints,
+        autofocus: widget.autofocus ?? false,
+        buildCounter: widget.buildCounter,
+        clipBehavior: widget.clipBehavior ?? Clip.hardEdge,
+        contentInsertionConfiguration: widget.contentInsertionConfiguration,
+        contextMenuBuilder: widget.contextMenuBuilder,
+        cursorColor: widget.cursorColor,
+        cursorErrorColor: widget.cursorErrorColor,
+        cursorHeight: widget.cursorHeight,
+        cursorOpacityAnimates: widget.cursorOpacityAnimates,
+        cursorRadius: widget.cursorRadius,
+        cursorWidth: widget.cursorWidth ?? 2.0,
+        dragStartBehavior: widget.dragStartBehavior ??
+            DragStartBehavior.start,
+        enabled: widget.enabled,
+        enableIMEPersonalizedLearning: widget.enableIMEPersonalizedLearning ??
+            true,
+        enableInteractiveSelection: widget.enableInteractiveSelection,
+        enableSuggestions: widget.enableSuggestions ?? true,
+        expands: widget.expands ?? false,
+        ignorePointers: widget.ignorePointers,
+        inputFormatters: widget.inputFormatters,
+        keyboardAppearance: widget.keyboardAppearance,
+        magnifierConfiguration: widget.magnifierConfiguration,
+        maxLength: widget.maxLength,
+        maxLengthEnforcement: widget.maxLengthEnforcement,
+        maxLines: widget.maxLines,
+        minLines: widget.minLines,
+        mouseCursor: widget.mouseCursor,
+        obscureText: widget.obscureText ?? false,
+        obscuringCharacter: widget.obscuringCharacter ?? "•",
+        onAppPrivateCommand: widget.onAppPrivateCommand,
+        onChanged: widget.onChanged,
+        onEditingComplete: widget.onEditingComplete,
+        onTapOutside: widget.onTapOutside,
+        readOnly: widget.readOnly ?? false,
+        restorationId: widget.restorationId,
+        scribbleEnabled: widget.scribbleEnabled ?? true,
+        scrollController: widget.scrollController,
+        scrollPadding: widget.scrollPadding ?? const EdgeInsets.all(20.0),
+        scrollPhysics: widget.scrollPhysics,
+        selectionControls: widget.selectionControls,
+        selectionHeightStyle: widget.selectionHeightStyle ??
+            BoxHeightStyle.tight,
+        selectionWidthStyle: widget.selectionWidthStyle ??
+            BoxWidthStyle.tight,
+        showCursor: widget.showCursor,
+        smartDashesType: widget.smartDashesType,
+        smartQuotesType: widget.smartQuotesType,
+        spellCheckConfiguration: widget.spellCheckConfiguration,
+        statesController: widget.statesController,
+        strutStyle: widget.strutStyle,
+        textAlign: widget.textAlign ?? TextAlign.start,
+        textAlignVertical: widget.textAlignVertical,
+        textCapitalization: widget.textCapitalization ??
+            TextCapitalization.none,
+        textInputAction: widget.textInputAction,
+        undoController: widget.undoController,
+      ),
+    );
+
+    if (widget.isExpanded) {
+      textField = Expanded(child: textField);
+    } else if (widget.isFlexible) {
+      textField = Flexible(child: textField);
+    }
+
+    if (widget.applyIntrinsicHeight
+        && !(widget.isScrollable || widget.isExpanded || widget.isFlexible)) {
+      textField = IntrinsicHeight(child: textField);
+    }
+
+    return textField;
+  }
+}
+
 enum $Direction { right, left, up, down }
 
 enum $Align { start, end, center, spaceBetween, spaceAround, spaceEvenly, stretch }
