@@ -13,3 +13,8 @@ fix: Add decorationBorder field to $TextField widget
 ## 0.0.4
 
 fix: border, radius and background properties of $Button widget not working correctly
+
+## 0.1.0
+
+fix: rename "super_widget" references with "super_duper_widget"
+add widgets: $TextFormField, $ValidatedTextField
