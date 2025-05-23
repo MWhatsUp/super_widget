@@ -8,7 +8,7 @@ A small library that simplifies widget layout and helps to remove deep nesting o
 
 ## Getting started
 
-- Install the package via "flutter pub get super_widget".
+- Install the package via "flutter pub get super_duper_widget".
 - Import the library.
 - You are ready to go.
 
@@ -16,7 +16,7 @@ A small library that simplifies widget layout and helps to remove deep nesting o
 
 Use provided widgets with simpler layout control: 
 ```dart
-import 'package:super_widget/super_widget.dart' as http;
+import 'package:super_duper_widget/super_duper_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -60,7 +60,7 @@ class HomePageState extends State<HomePage> {
 
 Wrap an existing flutter widget and use simpler layout controls:
 ```dart
-import 'package:super_widget/super_widget.dart' as http;
+import 'package:super_duper_widget/super_duper_widget.dart';
 
 class SpecialImage extends StatelessWidget {
   const SpecialImage({
