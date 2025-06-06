@@ -1651,7 +1651,7 @@ class $Text extends _SuperWidget {
 
 class $Icon extends _SuperWidget {
   $Icon(IconData icon, {
-    // TextField Widget properties
+    // Icon Widget properties
     Color? color,
     bool? applyTextScaling,
     double? fill,
@@ -1737,7 +1737,7 @@ class $Icon extends _SuperWidget {
 
 class $ImageAsset extends _SuperWidget {
   $ImageAsset(String name, {
-    // TextField Widget properties
+    // Image.asset Widget properties
     AssetBundle? bundle,
     ImageFrameBuilder? frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
@@ -1856,7 +1856,7 @@ class $ImageAsset extends _SuperWidget {
 
 class $ImageMemory extends _SuperWidget {
   $ImageMemory(Uint8List bytes, {
-    // TextField Widget properties
+    // Image.memory Widget properties
     ImageFrameBuilder? frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
@@ -1971,7 +1971,7 @@ class $ImageMemory extends _SuperWidget {
 
 class $ImageFile extends _SuperWidget {
   $ImageFile(File file, {
-    // TextField Widget properties
+    // Image.file Widget properties
     ImageFrameBuilder? frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
@@ -2086,7 +2086,7 @@ class $ImageFile extends _SuperWidget {
 
 class $ImageNetwork extends _SuperWidget {
   $ImageNetwork(String src, {
-    // TextField Widget properties
+    // Image.network Widget properties
     ImageLoadingBuilder? loadingBuilder,
     ImageFrameBuilder? frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
@@ -2596,7 +2596,7 @@ class $TextField extends _SuperWidget {
 
 class $Button extends _SuperWidget {
   $Button(Widget? child, {
-    // TextField Widget properties
+    // Button Widget properties
     ButtonStyle? style,
     FocusNode? focusNode,
     Clip? clipBehavior,
@@ -2836,7 +2836,7 @@ class $Button extends _SuperWidget {
 
 class $FloatingButton extends _SuperWidget {
   $FloatingButton(Widget child, {
-    // TextField Widget properties
+    // FloatingButton Widget properties
     Color? splashColor,
     MouseCursor? mouseCursor,
     Color? focusColor,
@@ -2905,9 +2905,6 @@ class $FloatingButton extends _SuperWidget {
     super.opacity,
     super.applyIntrinsicHeight = false,
 
-    // Overwritten properties
-
-
     // New properties
     Color? color,
   }) : super(
@@ -2960,7 +2957,7 @@ class $FloatingButton extends _SuperWidget {
 
 class $DropDown<T> extends _SuperWidget {
   $DropDown(List<DropdownMenuEntry<T>> dropdownMenuEntries, {
-    // TextField Widget properties
+    // DropDown Widget properties
     FocusNode? focusNode,
     List<TextInputFormatter>? inputFormatters,
     super.width,
@@ -3128,7 +3125,7 @@ class $DropDown<T> extends _SuperWidget {
 
 class $Switch extends _SuperWidget {
   $Switch({
-    // TextField Widget properties
+    // Switch Widget properties
     bool? value,
     void Function(bool)? onChanged,
     FocusNode? focusNode,
@@ -3301,7 +3298,7 @@ class $BottomTabs extends StatelessWidget {
 
 class $TextFormField extends _SuperWidget {
   $TextFormField({
-    // TextField Widget properties
+    // TextFormField Widget properties
     Key? textFormFieldKey,
     String? Function(String?)? validator,
     AutovalidateMode? autovalidateMode,
