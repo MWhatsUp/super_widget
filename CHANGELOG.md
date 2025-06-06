@@ -18,3 +18,9 @@ fix: border, radius and background properties of $Button widget not working corr
 
 fix: rename "super_widget" references with "super_duper_widget"
 add widgets: $TextFormField, $ValidatedTextField
+
+## 0.2.0
+
+add $Checkbox widget
+
+
