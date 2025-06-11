@@ -28,4 +28,8 @@ add $Checkbox widget
 fix: Issues with expanding child widgets of the $Page widget
 add: $Form widget
 
+## 0.4.0
+
+add: $IconButton widget
+
 
