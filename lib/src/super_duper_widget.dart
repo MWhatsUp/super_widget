@@ -458,8 +458,8 @@ class _SuperWidget extends StatelessWidget {
       }
 
       scrollableView = SingleChildScrollView(
-          controller: scrollController,
-          child: scrollableView,
+        controller: scrollController,
+        child: scrollableView,
       );
     }
 
@@ -1450,6 +1450,7 @@ class $Page extends StatelessWidget {
     this.verticalAlign,
     this.isCentered = false,
     this.isScrollable = false,
+    this.expandContent = false,
   });
 
   final Widget? appBar;
@@ -1463,29 +1464,118 @@ class $Page extends StatelessWidget {
   final $Align? verticalAlign;
   final bool isCentered;
   final bool isScrollable;
+  final bool expandContent;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      appBar: AppBar(
+      appBar: appBar is AppBar
+          ? appBar as AppBar
+          : AppBar(
         backgroundColor: appBarColor ?? Theme
             .of(context)
             .colorScheme
             .inversePrimary,
         title: appBar ?? Text(title ?? ""),
       ),
-      body: $List(
+      body: body.length == 1
+          ? $Single(
+          direction: direction ?? $Direction.down,
+          horizontalAlign: horizontalAlign ?? $Align.start,
+          verticalAlign: verticalAlign ?? $Align.start,
+          isCentered: isCentered,
+          isScrollable: isScrollable,
+          expandContent? Expanded(child: body[0]) : body[0]
+      )
+          : $List(
         direction: direction ?? $Direction.down,
         horizontalAlign: horizontalAlign ?? $Align.start,
         verticalAlign: verticalAlign ?? $Align.start,
         isCentered: isCentered,
         isScrollable: isScrollable,
-        body,
+        expandContent
+            ? body.map((widget) => Expanded(child: widget)).toList()
+            : body,
       ),
       floatingActionButton: floatingButton,
     );
   }
+}
+
+class $Form extends _SuperWidget {
+  $Form(Widget child, {
+    // Form Widget properties
+    Key? formKey,
+    bool? canPop,
+    PopInvokedWithResultCallback<Object?>? onPopInvokedWithResult,
+    VoidCallback? onChanged,
+    AutovalidateMode? autovalidateMode,
+
+    // SuperWidget properties
+    super.key,
+    super.isFlexible = false,
+    super.isExpanded = false,
+    super.doNotExpand = false,
+    super.fillWidth = false,
+    super.fillHeight = false,
+    super.aspectRatio,
+    super.inverseAspectRatio,
+    super.clipBehaviour,
+    super.width,
+    super.height,
+    super.position = const [],
+    super.left,
+    super.top,
+    super.right,
+    super.bottom,
+    super.margin = const [],
+    super.marginLeft,
+    super.marginTop,
+    super.marginRight,
+    super.marginBottom,
+    super.padding = const [],
+    super.paddingLeft,
+    super.paddingTop,
+    super.paddingRight,
+    super.paddingBottom,
+    super.border = const [],
+    super.borderLeft = const [],
+    super.borderTop = const [],
+    super.borderRight = const [],
+    super.borderBottom = const [],
+    super.radius = const [],
+    super.radiusTopLeft,
+    super.radiusTopRight,
+    super.radiusBottomRight,
+    super.radiusBottomLeft,
+    super.background,
+    super.isScrollable = false,
+    super.scrollController,
+    super.scale = const [],
+    super.scaleX,
+    super.scaleY,
+    super.rotation,
+    super.flipX,
+    super.flipY,
+    super.isCentered = false,
+    super.opacity,
+    super.splashColor,
+    super.applyIntrinsicHeight = false,
+    super.onTap,
+  }) : super(children: const [],
+    direction: $Direction.down,
+    horizontalAlign: $Align.start,
+    verticalAlign: $Align.start,
+    child: Form(
+        key: formKey,
+        canPop: canPop,
+        onPopInvokedWithResult: onPopInvokedWithResult,
+        onChanged: onChanged,
+        autovalidateMode: autovalidateMode,
+        child: child
+    ),
+  );
 }
 
 class $Text extends _SuperWidget {
@@ -1720,17 +1810,17 @@ class $Icon extends _SuperWidget {
     horizontalAlign: $Align.start,
     verticalAlign: $Align.start,
     child: Icon(
-        color: color,
-        applyTextScaling: applyTextScaling,
-        fill: fill,
-        textDirection: textDirection,
-        grade: grade,
-        opticalSize: opticalSize,
-        semanticLabel: semanticLabel,
-        shadows: shadows,
-        size: size,
-        weight: weight,
-        icon,
+      color: color,
+      applyTextScaling: applyTextScaling,
+      fill: fill,
+      textDirection: textDirection,
+      grade: grade,
+      opticalSize: opticalSize,
+      semanticLabel: semanticLabel,
+      shadows: shadows,
+      size: size,
+      weight: weight,
+      icon,
     ),
   );
 }
@@ -2737,36 +2827,36 @@ class $Button extends _SuperWidget {
           paddingBottom: paddingBottom,
         ),
         shape: shape ?? RoundedRectangleBorder(
-          borderRadius: _SuperWidget.setRadius(
-            radius: radius,
-            radiusTopLeft: radiusTopLeft,
-            radiusTopRight: radiusTopRight,
-            radiusBottomRight: radiusBottomRight,
-            radiusBottomLeft: radiusBottomLeft,
-          ),
-          side: BorderSide(
-            width: [
-              if (border.isNotEmpty && border[0] is int)
-                (border[0] as int).toDouble()
-              else if (border.isNotEmpty && border[0] is double)
-                border[0] as double
-              else if (border.isNotEmpty )
-                1.0
-              else
-                0.0
-            ][0],
-            color: [
-              if (border.isNotEmpty && border[0] is Color)
-                border[0] as Color
-              else if (border.length > 1 && border[1] is Color)
-                border[1] as Color
-              else if (border.isNotEmpty &&
-                    (border[0] is double || border[0] is int))
-                Colors.black
-              else
-                Colors.transparent
-            ][0],
-          )
+            borderRadius: _SuperWidget.setRadius(
+              radius: radius,
+              radiusTopLeft: radiusTopLeft,
+              radiusTopRight: radiusTopRight,
+              radiusBottomRight: radiusBottomRight,
+              radiusBottomLeft: radiusBottomLeft,
+            ),
+            side: BorderSide(
+              width: [
+                if (border.isNotEmpty && border[0] is int)
+                  (border[0] as int).toDouble()
+                else if (border.isNotEmpty && border[0] is double)
+                  border[0] as double
+                else if (border.isNotEmpty )
+                    1.0
+                  else
+                    0.0
+              ][0],
+              color: [
+                if (border.isNotEmpty && border[0] is Color)
+                  border[0] as Color
+                else if (border.length > 1 && border[1] is Color)
+                  border[1] as Color
+                else if (border.isNotEmpty &&
+                      (border[0] is double || border[0] is int))
+                    Colors.black
+                  else
+                    Colors.transparent
+              ][0],
+            )
         ),
         backgroundColor: textBackground ?? background,
         foregroundColor: foregroundColor ?? color,
@@ -3068,57 +3158,57 @@ class $DropDown<T> extends _SuperWidget {
     onTap: null,
     splashColor: null,
     child: DropdownMenu<T>(
-        dropdownMenuEntries: dropdownMenuEntries,
-        focusNode: focusNode,
-        inputFormatters: inputFormatters,
-        width: width,
-        helperText: helperText,
-        errorText: errorText,
-        enabled: enabled ?? true,
-        label: label,
-        hintText: hintText,
-        controller: controller,
-        enableFilter: enableFilter ?? false,
-        enableSearch: enableSearch ?? true,
-        expandedInsets: expandedInsets,
-        initialSelection: initialSelection,
-        inputDecorationTheme: inputDecorationTheme,
-        leadingIcon: leadingIcon,
-        menuHeight: menuHeight,
-        menuStyle: menuStyle,
-        onSelected: onSelected,
-        requestFocusOnTap: requestFocusOnTap,
-        searchCallback: searchCallback,
-        selectedTrailingIcon: selectedTrailingIcon,
-        textStyle: TextStyle(
-          color: textStyle?.color ?? color,
-          backgroundColor: textStyle?.backgroundColor ?? background,
-          fontFamily: textStyle?.fontFamily ?? fontFamily,
-          fontFamilyFallback: textStyle?.fontFamilyFallback ?? fontFamilyFallback,
-          fontFeatures: textStyle?.fontFeatures ?? fontFeatures,
-          fontStyle: textStyle?.fontStyle ?? fontStyle,
-          fontSize: textStyle?.fontSize ?? fontSize,
-          fontVariations: textStyle?.fontVariations ?? fontVariations,
-          fontWeight: textStyle?.fontWeight ?? fontWeight,
-          letterSpacing: textStyle?.letterSpacing ?? letterSpacing,
-          locale: textStyle?.locale ?? locale,
-          overflow: textStyle?.overflow ?? overflow,
-          wordSpacing: textStyle?.wordSpacing ?? wordSpacing,
-          background: textStyle?.background ?? paintBackground,
-          debugLabel: textStyle?.debugLabel,
-          decoration: textStyle?.decoration,
-          decorationColor: textStyle?.decorationColor,
-          decorationStyle: textStyle?.decorationStyle,
-          decorationThickness: textStyle?.decorationThickness,
-          foreground: textStyle?.foreground,
-          height: textStyle?.height ?? textHeight,
-          inherit: true,
-          leadingDistribution: textStyle?.leadingDistribution,
-          package: null,
-          shadows: textStyle?.shadows,
-          textBaseline: textStyle?.textBaseline,
-        ),
-        trailingIcon: trailingIcon,
+      dropdownMenuEntries: dropdownMenuEntries,
+      focusNode: focusNode,
+      inputFormatters: inputFormatters,
+      width: width,
+      helperText: helperText,
+      errorText: errorText,
+      enabled: enabled ?? true,
+      label: label,
+      hintText: hintText,
+      controller: controller,
+      enableFilter: enableFilter ?? false,
+      enableSearch: enableSearch ?? true,
+      expandedInsets: expandedInsets,
+      initialSelection: initialSelection,
+      inputDecorationTheme: inputDecorationTheme,
+      leadingIcon: leadingIcon,
+      menuHeight: menuHeight,
+      menuStyle: menuStyle,
+      onSelected: onSelected,
+      requestFocusOnTap: requestFocusOnTap,
+      searchCallback: searchCallback,
+      selectedTrailingIcon: selectedTrailingIcon,
+      textStyle: TextStyle(
+        color: textStyle?.color ?? color,
+        backgroundColor: textStyle?.backgroundColor ?? background,
+        fontFamily: textStyle?.fontFamily ?? fontFamily,
+        fontFamilyFallback: textStyle?.fontFamilyFallback ?? fontFamilyFallback,
+        fontFeatures: textStyle?.fontFeatures ?? fontFeatures,
+        fontStyle: textStyle?.fontStyle ?? fontStyle,
+        fontSize: textStyle?.fontSize ?? fontSize,
+        fontVariations: textStyle?.fontVariations ?? fontVariations,
+        fontWeight: textStyle?.fontWeight ?? fontWeight,
+        letterSpacing: textStyle?.letterSpacing ?? letterSpacing,
+        locale: textStyle?.locale ?? locale,
+        overflow: textStyle?.overflow ?? overflow,
+        wordSpacing: textStyle?.wordSpacing ?? wordSpacing,
+        background: textStyle?.background ?? paintBackground,
+        debugLabel: textStyle?.debugLabel,
+        decoration: textStyle?.decoration,
+        decorationColor: textStyle?.decorationColor,
+        decorationStyle: textStyle?.decorationStyle,
+        decorationThickness: textStyle?.decorationThickness,
+        foreground: textStyle?.foreground,
+        height: textStyle?.height ?? textHeight,
+        inherit: true,
+        leadingDistribution: textStyle?.leadingDistribution,
+        package: null,
+        shadows: textStyle?.shadows,
+        textBaseline: textStyle?.textBaseline,
+      ),
+      trailingIcon: trailingIcon,
     ),
   );
 }
@@ -3209,32 +3299,32 @@ class $Switch extends _SuperWidget {
     radiusBottomRight: null,
     radiusBottomLeft: null,
     child: Switch(
-        value: value ?? false,
-        onChanged: onChanged,
-        key: key,
-        focusNode: focusNode,
-        materialTapTargetSize: materialTapTargetSize,
-        hoverColor: hoverColor,
-        focusColor: focusColor,
-        activeColor: activeColor,
-        activeThumbImage: activeThumbImage,
-        activeTrackColor: activeTrackColor,
-        autofocus: autofocus ?? false,
-        dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
-        inactiveThumbColor: inactiveThumbColor,
-        inactiveThumbImage: inactiveThumbImage,
-        inactiveTrackColor: inactiveTrackColor,
-        mouseCursor: mouseCursor,
-        onActiveThumbImageError: onActiveThumbImageError,
-        onFocusChange: onFocusChange,
-        onInactiveThumbImageError: onInactiveThumbImageError,
-        overlayColor: overlayColor,
-        splashRadius: splashRadius,
-        thumbColor: thumbColor,
-        thumbIcon: thumbIcon,
-        trackColor: trackColor,
-        trackOutlineColor: trackOutlineColor,
-        trackOutlineWidth: trackOutlineWidth,
+      value: value ?? false,
+      onChanged: onChanged,
+      key: key,
+      focusNode: focusNode,
+      materialTapTargetSize: materialTapTargetSize,
+      hoverColor: hoverColor,
+      focusColor: focusColor,
+      activeColor: activeColor,
+      activeThumbImage: activeThumbImage,
+      activeTrackColor: activeTrackColor,
+      autofocus: autofocus ?? false,
+      dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
+      inactiveThumbColor: inactiveThumbColor,
+      inactiveThumbImage: inactiveThumbImage,
+      inactiveTrackColor: inactiveTrackColor,
+      mouseCursor: mouseCursor,
+      onActiveThumbImageError: onActiveThumbImageError,
+      onFocusChange: onFocusChange,
+      onInactiveThumbImageError: onInactiveThumbImageError,
+      overlayColor: overlayColor,
+      splashRadius: splashRadius,
+      thumbColor: thumbColor,
+      thumbIcon: thumbIcon,
+      trackColor: trackColor,
+      trackOutlineColor: trackOutlineColor,
+      trackOutlineWidth: trackOutlineWidth,
     ),
   );
 }
