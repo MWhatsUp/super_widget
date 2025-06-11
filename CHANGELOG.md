@@ -23,4 +23,9 @@ add widgets: $TextFormField, $ValidatedTextField
 
 add $Checkbox widget
 
+## 0.3.0
+
+fix: Issues with expanding child widgets of the $Page widget
+add: $Form widget
+
 
