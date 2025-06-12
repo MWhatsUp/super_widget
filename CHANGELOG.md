@@ -32,4 +32,8 @@ add: $Form widget
 
 add: $IconButton widget
 
+## 0.5.0
+
+add: $TextButton and $Divider widgets
+
 
