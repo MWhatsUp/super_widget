@@ -36,4 +36,7 @@ add: $IconButton widget
 
 add: $TextButton and $Divider widgets
 
+## 0.6.0
 
+fix: add more detailed control to $IconButton widget
+add: $Dialog widget
