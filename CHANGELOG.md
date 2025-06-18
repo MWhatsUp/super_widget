@@ -40,3 +40,7 @@ add: $TextButton and $Divider widgets
 
 fix: add more detailed control to $IconButton widget
 add: $Dialog widget
+
+## 0.7.0
+
+add: heroTag parameter that will wrap widget inside Hero Widget
