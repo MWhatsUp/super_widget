@@ -63,6 +63,7 @@ class _SuperWidget extends StatelessWidget {
     required this.opacity,
     required this.splashColor,
     required this.applyIntrinsicHeight,
+    required this.heroTag,
     required this.onTap,
   });
 
@@ -119,12 +120,17 @@ class _SuperWidget extends StatelessWidget {
   final double? opacity;
   final Color? splashColor;
   final bool applyIntrinsicHeight;
+  final String? heroTag;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    Widget positionedChild = child != null
-        ? positionChild(child!)
+    Widget? heroApplied = child != null && heroTag != null
+    ? Hero(tag: heroTag!, child: Material(child: child!))
+    : child;
+
+    Widget positionedChild = heroApplied != null
+        ? positionChild(heroApplied)
         : positionChildren(children);
 
     /* Apply container properties (width, height, margin...) */
@@ -789,6 +795,7 @@ class _SuperWidget extends StatelessWidget {
       opacity: opacity,
       splashColor: splashColor,
       applyIntrinsicHeight: applyIntrinsicHeight,
+      heroTag: heroTag,
       onTap: onTap,
 
       left: position.isNotEmpty && left == null ? position[0] : left,
@@ -1195,6 +1202,7 @@ class $Single extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(child: child, children: const []);
 }
@@ -1253,6 +1261,7 @@ class $Rect extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(child: const _Empty(), children: const []);
 }
@@ -1311,6 +1320,7 @@ class $ extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(children: children, child: null);
 }
@@ -1369,6 +1379,7 @@ class $List extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(children: children, child: null);
 }
@@ -1427,6 +1438,7 @@ class $Row extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: children,
@@ -1562,6 +1574,7 @@ class $Form extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(children: const [],
     direction: $Direction.down,
@@ -1645,6 +1658,7 @@ class $Text extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
 
     // Overwritten properties
@@ -1803,6 +1817,7 @@ class $Icon extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -1893,6 +1908,7 @@ class $IconButton extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
 
     // Overwritten properties
@@ -2059,6 +2075,7 @@ class $Dialog extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -2161,6 +2178,7 @@ class $ImageAsset extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -2278,6 +2296,7 @@ class $ImageMemory extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -2393,6 +2412,7 @@ class $ImageFile extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -2510,6 +2530,7 @@ class $ImageNetwork extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -2669,6 +2690,7 @@ class $TextField extends _SuperWidget {
     super.isCentered = false,
     super.opacity,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
 
     // Overwritten properties
     Color? color,
@@ -2998,6 +3020,7 @@ class $Button extends _SuperWidget {
     super.isCentered = false,
     super.opacity,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
 
     // Overwritten properties
     List<Object> border = const [],
@@ -3202,7 +3225,7 @@ class $FloatingButton extends _SuperWidget {
     double? elevation,
     bool? enableFeedback,
     double? focusElevation,
-    Object? heroTag,
+    Object? innerHeroTag,
     double? highlightElevation,
     double? hoverElevation,
     bool? isExtended,
@@ -3256,6 +3279,7 @@ class $FloatingButton extends _SuperWidget {
     super.isCentered = false,
     super.opacity,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
 
     // New properties
     Color? color,
@@ -3285,7 +3309,7 @@ class $FloatingButton extends _SuperWidget {
       elevation: elevation,
       enableFeedback: enableFeedback,
       focusElevation: focusElevation,
-      heroTag: heroTag,
+      heroTag: innerHeroTag,
       highlightElevation: highlightElevation,
       hoverElevation: hoverElevation,
       isExtended: isExtended ?? false,
@@ -3372,6 +3396,7 @@ class $DropDown<T> extends _SuperWidget {
     super.isCentered = false,
     super.opacity,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
 
     // Overwritten properties
     Color? color,
@@ -3543,6 +3568,7 @@ class $Switch extends _SuperWidget {
     super.isCentered = false,
     super.opacity,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
   }) : super(
     children: const [],
     direction: $Direction.down,
@@ -3771,6 +3797,7 @@ class $TextFormField extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
 
     // Overwritten properties
     Color? color,
@@ -4862,6 +4889,7 @@ class $Checkbox extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -4951,6 +4979,7 @@ class $Divider extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
@@ -5031,6 +5060,7 @@ class $TextButton extends _SuperWidget {
     super.opacity,
     super.splashColor,
     super.applyIntrinsicHeight = false,
+    super.heroTag,
     super.onTap,
   }) : super(
     children: const [],
