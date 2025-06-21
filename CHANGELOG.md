@@ -44,3 +44,7 @@ add: $Dialog widget
 ## 0.7.0
 
 add: heroTag parameter that will wrap widget inside Hero Widget
+
+## 0.8.0
+
+fix: heroTag adds white background to widgets
