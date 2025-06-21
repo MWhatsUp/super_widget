@@ -125,9 +125,16 @@ class _SuperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget? heroApplied = child != null && heroTag != null
-    ? Hero(tag: heroTag!, child: Material(child: child!))
-    : child;
+    Widget? heroApplied = child;
+    if (child != null && heroTag != null) {
+      heroApplied = Hero(
+        tag: heroTag!,
+        child: Material(
+            color: Colors.transparent,
+            child: child!
+        ),
+      );
+    }
 
     Widget positionedChild = heroApplied != null
         ? positionChild(heroApplied)
