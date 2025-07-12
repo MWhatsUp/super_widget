@@ -17,7 +17,6 @@ class _SuperWidget extends StatelessWidget {
     required this.verticalAlign,
     required this.isFlexible,
     required this.isExpanded,
-    required this.doNotExpand,
     required this.fillWidth,
     required this.fillHeight,
     required this.aspectRatio,
@@ -74,7 +73,6 @@ class _SuperWidget extends StatelessWidget {
   final $Align verticalAlign;
   final bool isFlexible;
   final bool isExpanded;
-  final bool doNotExpand;
   final bool fillWidth;
   final bool fillHeight;
   final Size? aspectRatio;
@@ -760,7 +758,6 @@ class _SuperWidget extends StatelessWidget {
       verticalAlign: verticalAlign,
       isFlexible: isFlexible,
       isExpanded: isExpanded,
-      doNotExpand: doNotExpand,
       fillWidth: fillWidth,
       fillHeight: fillHeight,
       aspectRatio: aspectRatio,
@@ -853,19 +850,11 @@ class _SuperWidget extends StatelessWidget {
       return false;
     }
 
-    if (widget.doNotExpand) {
-      return false;
-    }
-
     if (widget.isExpanded) {
       return true;
     }
 
     if (widget.isFlexible) {
-      return true;
-    }
-
-    if (widget.hasExpandingChildren) {
       return true;
     }
 
@@ -1107,19 +1096,11 @@ class _ChildInfo {
       return false;
     }
 
-    if (widget.doNotExpand) {
-      return false;
-    }
-
     if (widget.isExpanded) {
       return true;
     }
 
     if (widget.isFlexible) {
-      return true;
-    }
-
-    if (widget.hasExpandingChildren) {
       return true;
     }
 
@@ -1163,7 +1144,6 @@ class $Single extends _SuperWidget {
     super.verticalAlign = $Align.start,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1222,7 +1202,6 @@ class $Rect extends _SuperWidget {
     super.verticalAlign = $Align.start,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1281,7 +1260,6 @@ class $ extends _SuperWidget {
     super.verticalAlign = $Align.start,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1340,7 +1318,6 @@ class $List extends _SuperWidget {
     super.verticalAlign = $Align.start,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1399,7 +1376,6 @@ class $Row extends _SuperWidget {
     super.verticalAlign = $Align.center,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1453,6 +1429,153 @@ class $Row extends _SuperWidget {
     direction: direction == $Direction.right || direction == $Direction.down
         ? $Direction.right
         : $Direction.left,
+  );
+}
+
+class $Column extends _SuperWidget {
+  const $Column(List<Widget> children, {
+    super.key,
+    $Direction direction = $Direction.down,
+    super.horizontalAlign = $Align.center,
+    super.verticalAlign = $Align.start,
+    super.isFlexible = false,
+    super.isExpanded = false,
+    super.fillWidth = false,
+    super.fillHeight = false,
+    super.aspectRatio,
+    super.inverseAspectRatio,
+    super.clipBehaviour,
+    super.width,
+    super.height,
+    super.position = const [],
+    super.left,
+    super.top,
+    super.right,
+    super.bottom,
+    super.margin = const [],
+    super.marginLeft,
+    super.marginTop,
+    super.marginRight,
+    super.marginBottom,
+    super.padding = const [],
+    super.paddingLeft,
+    super.paddingTop,
+    super.paddingRight,
+    super.paddingBottom,
+    super.border = const [],
+    super.borderLeft = const [],
+    super.borderTop = const [],
+    super.borderRight = const [],
+    super.borderBottom = const [],
+    super.radius = const [],
+    super.radiusTopLeft,
+    super.radiusTopRight,
+    super.radiusBottomRight,
+    super.radiusBottomLeft,
+    super.background,
+    super.isScrollable = false,
+    super.scrollController,
+    super.scale = const [],
+    super.scaleX,
+    super.scaleY,
+    super.rotation,
+    super.flipX,
+    super.flipY,
+    super.isCentered = false,
+    super.opacity,
+    super.splashColor,
+    super.applyIntrinsicHeight = false,
+    super.heroTag,
+    super.onTap,
+  }) : super(
+    children: children,
+    child: null,
+    direction: direction == $Direction.down || direction == $Direction.right
+        ? $Direction.down
+        : $Direction.up,
+  );
+}
+
+class $Wrap extends _SuperWidget {
+  $Wrap(List<Widget> children, {
+    // Wrap Widget properties
+    Axis direction = Axis.horizontal,
+    WrapAlignment alignment = WrapAlignment.start,
+    double spacing = 0.0,
+    WrapAlignment runAlignment = WrapAlignment.start,
+    double runSpacing = 0.0,
+    WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    Clip clipBehavior = Clip.none,
+
+    // SuperWidget properties
+    super.key,
+    super.isFlexible = false,
+    super.isExpanded = false,
+    super.fillWidth = false,
+    super.fillHeight = false,
+    super.aspectRatio,
+    super.inverseAspectRatio,
+    super.clipBehaviour,
+    super.width,
+    super.height,
+    super.position = const [],
+    super.left,
+    super.top,
+    super.right,
+    super.bottom,
+    super.margin = const [],
+    super.marginLeft,
+    super.marginTop,
+    super.marginRight,
+    super.marginBottom,
+    super.padding = const [],
+    super.paddingLeft,
+    super.paddingTop,
+    super.paddingRight,
+    super.paddingBottom,
+    super.border = const [],
+    super.borderLeft = const [],
+    super.borderTop = const [],
+    super.borderRight = const [],
+    super.borderBottom = const [],
+    super.radius = const [],
+    super.radiusTopLeft,
+    super.radiusTopRight,
+    super.radiusBottomRight,
+    super.radiusBottomLeft,
+    super.background,
+    super.isScrollable = false,
+    super.scrollController,
+    super.scale = const [],
+    super.scaleX,
+    super.scaleY,
+    super.rotation,
+    super.flipX,
+    super.flipY,
+    super.isCentered = false,
+    super.opacity,
+    super.splashColor,
+    super.applyIntrinsicHeight = false,
+    super.heroTag,
+    super.onTap,
+  }) : super(
+    direction: $Direction.right,
+    horizontalAlign: $Align.start,
+    verticalAlign: $Align.start,
+    children: const [],
+    child: Wrap(
+      direction: direction,
+      alignment: alignment,
+      spacing: spacing,
+      runAlignment: runAlignment,
+      runSpacing: runSpacing,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      clipBehavior: clipBehavior,
+      children: children,
+    ),
   );
 }
 
@@ -1535,7 +1658,6 @@ class $Form extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1619,7 +1741,6 @@ class $Text extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1778,7 +1899,6 @@ class $Icon extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -1875,7 +1995,6 @@ class $IconButton extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2042,7 +2161,6 @@ class $Dialog extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2141,7 +2259,6 @@ class $ImageAsset extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2259,7 +2376,6 @@ class $ImageMemory extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2375,7 +2491,6 @@ class $ImageFile extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2493,7 +2608,6 @@ class $ImageNetwork extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2654,7 +2768,6 @@ class $TextField extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -2953,7 +3066,6 @@ class $TextField extends _SuperWidget {
       onTapOutside: onTapOutside,
       readOnly: readOnly ?? false,
       restorationId: restorationId,
-      scribbleEnabled: scribbleEnabled ?? true,
       scrollController: scrollController,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       scrollPhysics: scrollPhysics,
@@ -2993,7 +3105,6 @@ class $Button extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -3205,7 +3316,6 @@ class $Button extends _SuperWidget {
       focusNode: focusNode,
       clipBehavior: clipBehavior,
       autofocus: autofocus ?? false,
-      iconAlignment: iconAlignment ?? IconAlignment.start,
       onPressed: onPressed,
       onFocusChange: onFocusChange,
       onHover: onHover,
@@ -3246,7 +3356,6 @@ class $FloatingButton extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -3369,7 +3478,6 @@ class $DropDown<T> extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -3540,7 +3648,6 @@ class $Switch extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -3760,7 +3867,6 @@ class $TextFormField extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -4066,7 +4172,6 @@ class $TextFormField extends _SuperWidget {
       onTapOutside: onTapOutside,
       readOnly: readOnly ?? false,
       restorationId: restorationId,
-      scribbleEnabled: scribbleEnabled ?? true,
       scrollController: scrollController,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       scrollPhysics: scrollPhysics,
@@ -4784,7 +4889,6 @@ class $ValidatedTextFieldView extends StatelessWidget {
         onTapOutside: widget.onTapOutside,
         readOnly: widget.readOnly ?? false,
         restorationId: widget.restorationId,
-        scribbleEnabled: widget.scribbleEnabled ?? true,
         scrollController: widget.scrollController,
         scrollPadding: widget.scrollPadding ?? const EdgeInsets.all(20.0),
         scrollPhysics: widget.scrollPhysics,
@@ -4850,7 +4954,6 @@ class $Checkbox extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -4940,7 +5043,6 @@ class $Divider extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -5021,7 +5123,6 @@ class $TextButton extends _SuperWidget {
     super.key,
     super.isFlexible = false,
     super.isExpanded = false,
-    super.doNotExpand = false,
     super.fillWidth = false,
     super.fillHeight = false,
     super.aspectRatio,
@@ -5084,7 +5185,6 @@ class $TextButton extends _SuperWidget {
       autofocus: autofocus,
       clipBehavior: clipBehavior,
       isSemanticButton: isSemanticButton,
-      iconAlignment: iconAlignment,
       child: child,
     ),
   );
