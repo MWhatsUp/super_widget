@@ -48,3 +48,8 @@ add: heroTag parameter that will wrap widget inside Hero Widget
 ## 0.8.0
 
 fix: heroTag adds white background to widgets
+
+## 0.9.0
+
+remove: doNotExpand property (make widgets not expand by default)
+add: $Column and $Wrap widgets
