@@ -53,3 +53,8 @@ fix: heroTag adds white background to widgets
 
 remove: doNotExpand property (make widgets not expand by default)
 add: $Column and $Wrap widgets
+
+## 0.10.0
+
+add: useScaffold property to $Page widget, 
+add: $TabView, $Tab, $DefaultTabController, $TabBarView and $TabBar widgets
