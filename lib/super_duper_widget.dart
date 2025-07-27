@@ -1,5 +1,3 @@
-library super_duper_widget;
-
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui show TextHeightBehavior;
