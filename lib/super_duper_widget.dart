@@ -1,3 +1,5 @@
+library super_duper_widget;
+
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui show TextHeightBehavior;
@@ -1594,6 +1596,13 @@ class $Page extends StatelessWidget {
     this.isScrollable = false,
     this.expandContent = false,
     this.useScaffold = true,
+    this.useSafeArea = false,
+    this.safeAreaLeft = true,
+    this.safeAreaTop = true,
+    this.safeAreaRight = true,
+    this.safeAreaBottom = true,
+    this.safeAreaMinimum = EdgeInsets.zero,
+    this.safeAreaMaintainBottomViewPadding = false,
   });
 
   final Widget? appBar;
@@ -1609,6 +1618,13 @@ class $Page extends StatelessWidget {
   final bool isScrollable;
   final bool expandContent;
   final bool useScaffold;
+  final bool useSafeArea;
+  final bool safeAreaLeft;
+  final bool safeAreaTop;
+  final bool safeAreaRight;
+  final bool safeAreaBottom;
+  final EdgeInsets safeAreaMinimum;
+  final bool safeAreaMaintainBottomViewPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -1635,26 +1651,38 @@ class $Page extends StatelessWidget {
       );
     }
 
-    if (!useScaffold) {
-      return content;
+    if (useScaffold) {
+      content = Scaffold(
+        backgroundColor: background,
+        appBar: appBar is AppBar
+            ? appBar as AppBar
+            : AppBar(
+          backgroundColor: appBarColor ?? Theme
+              .of(context)
+              .colorScheme
+              .inversePrimary,
+          title: appBar ?? Text(title ?? ""),
+        ),
+
+        body: content,
+
+        floatingActionButton: floatingButton,
+      );
     }
 
-    return Scaffold(
-      backgroundColor: background,
-      appBar: appBar is AppBar
-          ? appBar as AppBar
-          : AppBar(
-        backgroundColor: appBarColor ?? Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
-        title: appBar ?? Text(title ?? ""),
-      ),
+    if (useSafeArea) {
+      content = SafeArea(
+          left: safeAreaLeft,
+          top: safeAreaTop,
+          right: safeAreaRight,
+          bottom: safeAreaBottom,
+          minimum: safeAreaMinimum,
+          maintainBottomViewPadding: safeAreaMaintainBottomViewPadding,
+          child: content,
+      );
+    }
 
-      body: content,
-
-      floatingActionButton: floatingButton,
-    );
+    return content;
   }
 }
 
@@ -1759,58 +1787,58 @@ class $TabView extends _SuperWidget {
   }) : super(
     children: [],
     child: DefaultTabController(
-        length: length?? tabs.length,
-        initialIndex: initialIndex,
-        animationDuration: animationDuration,
-        child: Column(
-          children: [
-            Expanded(
-              child: TabBarView(
-                controller: viewsTabController,
-                physics: viewsScrollPhysics,
-                dragStartBehavior: viewsDragStartBehavior,
-                viewportFraction: viewportFraction,
-                clipBehavior: clipBehavior,
-                children: views,
-              ),
+      length: length?? tabs.length,
+      initialIndex: initialIndex,
+      animationDuration: animationDuration,
+      child: Column(
+        children: [
+          Expanded(
+            child: TabBarView(
+              controller: viewsTabController,
+              physics: viewsScrollPhysics,
+              dragStartBehavior: viewsDragStartBehavior,
+              viewportFraction: viewportFraction,
+              clipBehavior: clipBehavior,
+              children: views,
             ),
+          ),
 
-            Container(
-              color: tabBarBackground,
-              child: TabBar(
-                  controller: tapsTabController,
-                  isScrollable: tabsIsScrollable,
-                  padding: tabsPadding,
-                  indicatorColor: indicatorColor,
-                  indicatorWeight: indicatorWeight,
-                  indicatorPadding: indicatorPadding,
-                  indicator: indicator,
-                  automaticIndicatorColorAdjustment: automaticIndicatorColorAdjustment,
-                  indicatorSize: indicatorSize,
-                  dividerColor: dividerColor,
-                  dividerHeight: dividerHeight,
-                  labelColor: labelColor,
-                  unselectedLabelColor: unselectedLabelColor,
-                  labelStyle: labelStyle,
-                  unselectedLabelStyle: unselectedLabelStyle,
-                  labelPadding: labelPadding,
-                  dragStartBehavior: tabsDragStartBehavior,
-                  mouseCursor: mouseCursor,
-                  enableFeedback: enableFeedback,
-                  onTap: onTap,
-                  onHover: onHover,
-                  onFocusChange: onFocusChange,
-                  physics: tabsScrollPhysics,
-                  splashFactory: splashFactory,
-                  splashBorderRadius: splashBorderRadius,
-                  tabAlignment: tabAlignment,
-                  textScaler: textScaler,
-                  indicatorAnimation: indicatorAnimation,
-                  tabs: tabs,
-              ),
-            )
-          ],
-        ),
+          Container(
+            color: tabBarBackground,
+            child: TabBar(
+              controller: tapsTabController,
+              isScrollable: tabsIsScrollable,
+              padding: tabsPadding,
+              indicatorColor: indicatorColor,
+              indicatorWeight: indicatorWeight,
+              indicatorPadding: indicatorPadding,
+              indicator: indicator,
+              automaticIndicatorColorAdjustment: automaticIndicatorColorAdjustment,
+              indicatorSize: indicatorSize,
+              dividerColor: dividerColor,
+              dividerHeight: dividerHeight,
+              labelColor: labelColor,
+              unselectedLabelColor: unselectedLabelColor,
+              labelStyle: labelStyle,
+              unselectedLabelStyle: unselectedLabelStyle,
+              labelPadding: labelPadding,
+              dragStartBehavior: tabsDragStartBehavior,
+              mouseCursor: mouseCursor,
+              enableFeedback: enableFeedback,
+              onTap: onTap,
+              onHover: onHover,
+              onFocusChange: onFocusChange,
+              physics: tabsScrollPhysics,
+              splashFactory: splashFactory,
+              splashBorderRadius: splashBorderRadius,
+              tabAlignment: tabAlignment,
+              textScaler: textScaler,
+              indicatorAnimation: indicatorAnimation,
+              tabs: tabs,
+            ),
+          )
+        ],
+      ),
     ),
     direction: $Direction.down,
     horizontalAlign: $Align.center,
@@ -1890,8 +1918,8 @@ class $Tab extends _SuperWidget {
     child: Tab(
       text: tabText,
       icon: tabIcon ?? Icon(
-        color: iconColor,
-        icon
+          color: iconColor,
+          icon
       ),
       iconMargin: iconMargin,
       height: tabHeight,
