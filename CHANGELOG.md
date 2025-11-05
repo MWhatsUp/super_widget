@@ -58,3 +58,7 @@ add: $Column and $Wrap widgets
 
 add: useScaffold property to $Page widget, 
 add: $TabView, $Tab, $DefaultTabController, $TabBarView and $TabBar widgets
+
+## 0.11.0
+
+feat: add safearea to $Page widget for prevention of system bars overlapping app
